@@ -12,14 +12,9 @@ The file* penguins.csv contains body measurements for over 100 Gentoo penguins o
 
 ### :telescope: Modelling:
 - R libraries: dplyr for data manipulation, magrittr for pipe operator
-- Fit the linear regression model in R using lm() function
-coffee <- read.delim("coffee.txt")
-coffee.mod <- lm(Customers~Baristas, data=coffee)
-plot(Customers~Baristas, data=coffee, col = 'deeppink', pch = 19)
-abline(coffee.mod)
+- Fit a SLR model where bill length is the predictor and flipper_length is the response
+<img width="682" alt="Screen Shot 2022-08-16 at 11 23 13 AM" src="https://user-images.githubusercontent.com/64395120/184930042-202572bd-a01f-49b7-b33c-2e077584d94c.png">
+ As we can see from the display of regression output, the model can explain the 45.34% of fliiper length on bill length.
+- Compute 98\% confidence intervals for the intercept and slope coefficients
 
 
-
-predict.lm(coffee.mod, newdata = data.frame(Baristas = c(2)), interval = 'pred', level = 0.95)
-predict.lm(coffee.mod, newdata = data.frame(Baristas = c(8)), interval = 'pred', level = 0.95)
-- Compute 95% prediction intervals for $Y = Customers$ when $x=Baristas= 2$ and when $x=Baristas=8$
