@@ -27,7 +27,7 @@ As we can see from the display of regression output, the model can explain the 4
 <img width="700" alt="Screen Shot 2022-08-16 at 12 05 13 PM" src="https://user-images.githubusercontent.com/64395120/184937561-2e53da67-9e8e-402d-8d4c-111186896042.png">
 
 :heavy_check_mark: Create a table for Leverage and Standardized Residuals  <br>
-table <- data.frame(Case = 1:nrow(penguins), <br>
+data.frame(Case = 1:nrow(penguins), <br>
                     Diam = penguins$bill_length_mm,<br>
                     Distance = penguins$flipper_length_mm, <br>
                     Residuals = penguins.mod$residuals, <br>
