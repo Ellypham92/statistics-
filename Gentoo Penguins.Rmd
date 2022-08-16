@@ -1,0 +1,115 @@
+---
+title: "Gentoo Penguins"
+author: "Elly Pham"
+date: "8/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+# install.packages("dplyr")
+# install.packages("magrittr")
+library(dplyr)
+library(magrittr) # for the pipe
+```
+
+### Problem 
+The file* **penguins.csv** contains body measurements for over 100 Gentoo penguins observed in the Palmer Archipelago of Antarctica from 2007-2009.  The images show what the measurements mean.  Here we will work with bill length and flipper length.  
+
+#### (a) Fit a SLR model where bill length is the predictor and flipper_length is the response. Display the regression output.  Compute 98\% confidence intervals for the intercept and slope coefficients. 
+
+```{r}
+#penguins <- read.csv("penguins.csv")
+head(penguins)
+dim(penguins)
+
+penguins.mod <- lm(flipper_length_mm~bill_length_mm, data = penguins) ##fit the model
+summary(penguins.mod) ##display the result
+
+confint(penguins.mod, level = 0.98) ##CI's for intercept and slope
+
+summary(penguins.mod)$sigma ##estimate of sigma
+```
+#### (b) What proportion of the variation in flipper length is explained by bill length? 
+
+##### ----------As we can see from the display of regression output, the model can explain the 45.34% of fliiper length on bill length.-----------
+
+#### (c) What is the estimate of $\sigma$, the standard deviation of the errors? 
+
+##### ----------The estimate sigma is 4.75245.-----------
+
+#### (d) Make a plot with the data points and the fitted regression line.  
+
+```{r}
+plot(flipper_length_mm~bill_length_mm, data = penguins, col='deeppink'); abline(penguins.mod, col = 'darkblue', lwd = 2)
+grid()
+```
+
+#### (e) Plot each data point as a red circle. Add curves for the fitted regression line, the boundaries of a 90% confidence interval for the regression line, and the boundaries of a 90% prediction interval for Fahrenheit.
+
+##### ----------As we can see in the plot, the blue lines color represents for the boundaries of a 98% confidence interval and the deeppink lines color represents for a 98% prediction interval; it is WIDER than the confidence interval boundaries. ----------
+
+```{r}
+# Make scatter plot and add curves
+plot(flipper_length_mm~bill_length_mm, data = penguins, col='red')
+xvec <- seq(min(penguins$bill_length_mm), max(penguins$bill_length_mm), by =  5)
+matplot(xvec, predict.lm(penguins.mod, newdata = data.frame(bill_length_mm = xvec), interval = 'conf', level = 0.98), col = c('black', rep('blue',2)), type = 'l', add = T)
+matplot(xvec, predict.lm(penguins.mod, newdata = data.frame(bill_length_mm = xvec),  interval = 'pred', level = 0.98), col = c('black', rep('deeppink',2)), type = 'l', add = T)
+```
+
+#### (f) Use the model to answer these questions:  Which points have high leverage?  Which points are outliers?  Which points are influential based on Cook's distance?  
+
+##### ----------Observations numbered as 11, 17, 62, 98, 102, 103, 111 are considered as high leverage. No outlier is found. Based on Cook's distance, we indentified observations numbered as 11, 66, 103 are influential points ----------
+
+```{r}
+
+### Leverage and Standardized Residuals table
+table <- data.frame(Case = 1:nrow(penguins), 
+                    Diam = penguins$bill_length_mm,
+                    Distance = penguins$flipper_length_mm,
+                    Residuals = penguins.mod$residuals,
+                    leverage = lm.influence(penguins.mod)$hat,
+                    StdResiduals = rstandard(penguins.mod))
+table
+
+leverage_points <- subset(table, leverage > (4/nrow(penguins))) ### detecting leverage points
+leverage_points
+
+outliers <- subset(leverage_points, abs(StdResiduals) > 2) ### identifying outliers
+outliers
+
+subset(cooks.distance(penguins.mod), cooks.distance(penguins.mod) > 4/(nrow(penguins)- 2)) ### influential points using Cooks Distance
+
+
+### diagnostic plots
+par(mfrow=c(2,2))
+plot(penguins.mod, col='royalblue1')
+```
+
+#### (g) Use the model to predict `flipper_length_mm` when `bill_length_mm` = 20.5 mm
+##### ----------By using the model, we can make the prediction that when value of bill_length_mm is 20.5 mm, the value for flipper_length_mm  is 177.5111  -----------
+```{r}
+###predict flipper_length_mm when bill_length_mm = 20.5 mm
+predict.lm(penguins.mod, data.frame(bill_length_mm = 20.5))
+
+```
+#### (h) Find the total sum of squares, the residual sum of squares, and the regression sum of squares based on `penguins.mod`
+##### ----------the total sum of squares is 4751.812, the residual sum of squares is 2154.447, and the regression sum of squares is 2154.447 -----------
+
+```{r}
+###
+penguins.aov = anova(penguins.mod)
+
+SSR <- penguins.aov$`Sum Sq`[1] ## Regression sum of squares
+SSR
+
+SSE <- penguins.aov$`Sum Sq`[2] ## Residual sum of squares
+SSE
+
+SST <- SSR + SSE ## Total sum of squares
+SST
+
+```
+
