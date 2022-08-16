@@ -13,16 +13,16 @@ The file* penguins.csv* contains body measurements for over 100 Gentoo penguins 
 ### :telescope: Modeling and Diagnotic:
 - R libraries: **dplyr** for data manipulation, **magrittr** for pipe operator
 - Fit a **Simple Linear Rregresion** model where bill length is the predictor and flipper_length is the response using lm() function <br>
-:heavy_check_mark: See the results: <br>
+:heavy_check_mark: Display the output: <br>
 <img width="400" alt="Screen Shot 2022-08-16 at 11 23 13 AM" src="https://user-images.githubusercontent.com/64395120/184930042-202572bd-a01f-49b7-b33c-2e077584d94c.png">
 
-:heavy_check_mark: Visualization using plot() function:
+:heavy_check_mark: Plot the fitted line using plot() function:
 
 <img width="700" alt="Screen Shot 2022-08-16 at 11 24 57 AM" src="https://user-images.githubusercontent.com/64395120/184930425-4bf6217e-38dc-4a6b-b985-744ae83fc448.png">
 
 As we can see from the display of regression output, the model can explain the 45.34% of fliiper length on bill length. The estimate sigma (standard deviation of the errors) is 4.75245
 
-- Use the model to answer these questions:  Which points have high leverage?  Which points are outliers?  Which points are influential based on Cook's distance?  
+- Answer these questions using the model:  Which points have high leverage?  Which points are outliers?  Which points are influential based on Cook's distance?  
 :heavy_check_mark: Diagnotic plots: <br>
 <img width="700" alt="Screen Shot 2022-08-16 at 12 05 13 PM" src="https://user-images.githubusercontent.com/64395120/184937561-2e53da67-9e8e-402d-8d4c-111186896042.png">
 
@@ -67,13 +67,13 @@ penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins
 We use summary() function to display the output, we learned thar the models for both males and females can explain the 24.69 %. The estimate sigma is 4.912 <br>
 
 ### :telescope: Prediction and Evaluation:
-- Use the model to predict `flipper_length_mm` when `bill_length_mm` = 20.5 mm. We use predict() function <br>
+- Predict `flipper_length_mm` when `bill_length_mm` = 20.5 mm. We use predict() function <br>
 
 predict.lm(penguins.mod, data.frame(bill_length_mm = 20.5))
 
 By using the model, we can make the prediction that when value of bill_length_mm is 20.5 mm, the value for flipper_length_mm  is 177.5111  
 
--  Find the total sum of squares, the residual sum of squares, and the regression sum of squares based on `penguins.mod`. We use anova() for calculation
+-  Calculated the total sum of squares, the residual sum of squares, and the regression sum of squares based on `penguins.mod`. We use anova() for calculation
 
 penguins.aov = anova(penguins.mod) <br>
 
