@@ -17,7 +17,7 @@ The file* penguins.csv contains body measurements for over 100 Gentoo penguins o
 <img width="682" alt="Screen Shot 2022-08-16 at 11 23 13 AM" src="https://user-images.githubusercontent.com/64395120/184930042-202572bd-a01f-49b7-b33c-2e077584d94c.png">
 
 :heavy_check_mark: Visualization:
-<img width="999" alt="Screen Shot 2022-08-16 at 11 24 57 AM" src="https://user-images.githubusercontent.com/64395120/184930425-4bf6217e-38dc-4a6b-b985-744ae83fc448.png">
+<img width="700" alt="Screen Shot 2022-08-16 at 11 24 57 AM" src="https://user-images.githubusercontent.com/64395120/184930425-4bf6217e-38dc-4a6b-b985-744ae83fc448.png">
 
 
  As we can see from the display of regression output, the model can explain the 45.34% of fliiper length on bill length.
