@@ -8,7 +8,7 @@ The file* penguins.csv contains body measurements for over 100 Gentoo penguins o
 ### :basketball: Data:
 - Using dim() to check the dimension and head() for a slice of the data
 - Data dimension: 117 rows and   8 columns
-<img width="997" alt="Screen Shot 2022-08-16 at 11 18 01 AM" src="https://user-images.githubusercontent.com/64395120/184929152-cd6ae74c-ef25-472f-a061-015114bb9660.png">
+<img width="700" alt="Screen Shot 2022-08-16 at 11 18 01 AM" src="https://user-images.githubusercontent.com/64395120/184929152-cd6ae74c-ef25-472f-a061-015114bb9660.png">
 
 ### :telescope: Modelling:
 - R libraries: dplyr for data manipulation, magrittr for pipe operator
@@ -24,7 +24,25 @@ As we can see from the display of regression output, the model can explain the 4
 
 - Use the model to answer these questions:  Which points have high leverage?  Which points are outliers?  Which points are influential based on Cook's distance?  
 :heavy_check_mark: Diagnotic plots: <br>
-<img width="812" alt="Screen Shot 2022-08-16 at 12 05 13 PM" src="https://user-images.githubusercontent.com/64395120/184937561-2e53da67-9e8e-402d-8d4c-111186896042.png">
+<img width="700" alt="Screen Shot 2022-08-16 at 12 05 13 PM" src="https://user-images.githubusercontent.com/64395120/184937561-2e53da67-9e8e-402d-8d4c-111186896042.png">
+
+:heavy_check_mark: Create a table to find Leverage and Standardized Residuals table <br>
+table <- data.frame(Case = 1:nrow(penguins), 
+                    Diam = penguins$bill_length_mm,
+                    Distance = penguins$flipper_length_mm,
+                    Residuals = penguins.mod$residuals,
+                    leverage = lm.influence(penguins.mod)$hat,
+                    StdResiduals = rstandard(penguins.mod))
+
+Output: <br>
+<img width="500" alt="Screen Shot 2022-08-16 at 12 07 43 PM" src="https://user-images.githubusercontent.com/64395120/184938025-570dc0ca-5f16-475c-850b-ace8053dc6f3.png">
+
+:heavy_check_mark:  Deteting leverage_points <br>
+
+subset(table, leverage > (4/nrow(penguins))) <br> 
+
+:heavy_check_mark: influential points using Cooks Distance <br>
+subset(cooks.distance(penguins.mod), cooks.distance(penguins.mod) > 4/(nrow(penguins)- 2)) <br> 
 
 
 - Split the penguin data into two subsets, one for female penguins and one for males
