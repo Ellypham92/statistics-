@@ -66,7 +66,7 @@ penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins
 
 We use summary() function to display the output, we learned thar the models for both males and females can explain the 24.69 %. The estimate sigma is 4.912 <br>
 
-### :telescope: Prediction and Evaluation:
+### :sailboat: Prediction and Evaluation:
 - Predict `flipper_length_mm` when `bill_length_mm` = 20.5 mm. We use predict() function <br>
 
 predict.lm(penguins.mod, data.frame(bill_length_mm = 20.5))
