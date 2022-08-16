@@ -3,16 +3,16 @@
 <img width="380" alt="Screen Shot 2022-08-16 at 11 11 44 AM" src="https://user-images.githubusercontent.com/64395120/184928087-200f4127-b6b5-40c4-a873-2c4c4a906854.png">
 
 ### :snowflake: Problem Statement:
-The file* penguins.csv contains body measurements for over 100 Gentoo penguins observed in the Palmer Archipelago of Antarctica from 2007-2009. The images show what the measurements mean. Here we will work with bill length and flipper length.
+The file* penguins.csv contains body measurements for over 100 Gentoo penguins observed in the Palmer Archipelago of Antarctica from 2007-2009. The images show what the measurements mean. Here we will work with bill length and flipper length to create predictive model.
 
 ### :ocean: Data:
 - Using dim() to check the dimension and head() for a slice of the data
 - Data dimension: 117 rows and   8 columns
 <img width="700" alt="Screen Shot 2022-08-16 at 11 18 01 AM" src="https://user-images.githubusercontent.com/64395120/184929152-cd6ae74c-ef25-472f-a061-015114bb9660.png">
 
-### :telescope: Modeling and Evaluation:
+### :telescope: Modeling and Diagnotic:
 - R libraries: **dplyr** for data manipulation, **magrittr** for pipe operator
-- Fit a SLR model where bill length is the predictor and flipper_length is the response using lm() function <br>
+- Fit a Simple Linear Rregresion model where bill length is the predictor and flipper_length is the response using lm() function <br>
 :heavy_check_mark: See the results: <br>
 <img width="400" alt="Screen Shot 2022-08-16 at 11 23 13 AM" src="https://user-images.githubusercontent.com/64395120/184930042-202572bd-a01f-49b7-b33c-2e077584d94c.png">
 
@@ -66,4 +66,19 @@ penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins
 
 We use summary() function to display the output, we learned thar the models for both males and females can explain the 24.69 %. The estimate sigma is 4.912 <br>
 
+### :telescope: Prediction and Evaluation:
+- Use the model to predict `flipper_length_mm` when `bill_length_mm` = 20.5 mm. We use predict() function <br>
 
+predict.lm(penguins.mod, data.frame(bill_length_mm = 20.5))
+
+By using the model, we can make the prediction that when value of bill_length_mm is 20.5 mm, the value for flipper_length_mm  is 177.5111  
+
+-  Find the total sum of squares, the residual sum of squares, and the regression sum of squares based on `penguins.mod`. We use anova() for calculation
+
+penguins.aov = anova(penguins.mod) <br>
+
+SSR <- penguins.aov$`Sum Sq`[1] ## Regression sum of squares <br>
+SSE <- penguins.aov$`Sum Sq`[2] ## Residual sum of squares <br>
+SST <- SSR + SSE ## Total sum of squares <br>
+
+The total sum of squares is 4751.812, the residual sum of squares is 2154.447, and the regression sum of squares is 2154.447 
