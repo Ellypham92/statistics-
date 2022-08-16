@@ -6,7 +6,9 @@
 The file* penguins.csv contains body measurements for over 100 Gentoo penguins observed in the Palmer Archipelago of Antarctica from 2007-2009. The images show what the measurements mean. Here we will work with bill length and flipper length.
 
 ### :basketball: Data:
- The file **coffee.txt** contains 53 days of test data collected by Starbucks in a city where some larger stores are already open.
+- Using dim() to check the dimension and head() for a slice of the data
+- Data dimension: 117 rows and   8 columns
+<img width="997" alt="Screen Shot 2022-08-16 at 11 18 01 AM" src="https://user-images.githubusercontent.com/64395120/184929152-cd6ae74c-ef25-472f-a061-015114bb9660.png">
 
 ### :telescope: Modelling:
 - R libraries: dplyr for data manipulation, magrittr for pipe operator
