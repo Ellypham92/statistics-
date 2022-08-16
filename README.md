@@ -2,16 +2,16 @@
 
 <img width="380" alt="Screen Shot 2022-08-16 at 11 11 44 AM" src="https://user-images.githubusercontent.com/64395120/184928087-200f4127-b6b5-40c4-a873-2c4c4a906854.png">
 
-### :tea: Problem Statement:
+### :snowflake: Problem Statement:
 The file* penguins.csv contains body measurements for over 100 Gentoo penguins observed in the Palmer Archipelago of Antarctica from 2007-2009. The images show what the measurements mean. Here we will work with bill length and flipper length.
 
-### :basketball: Data:
+### :ocean: Data:
 - Using dim() to check the dimension and head() for a slice of the data
 - Data dimension: 117 rows and   8 columns
 <img width="700" alt="Screen Shot 2022-08-16 at 11 18 01 AM" src="https://user-images.githubusercontent.com/64395120/184929152-cd6ae74c-ef25-472f-a061-015114bb9660.png">
 
-### :telescope: Modelling and Evaluation:
-- R libraries: dplyr for data manipulation, magrittr for pipe operator
+### :telescope: Modeling and Evaluation:
+- R libraries: **dplyr** for data manipulation, **magrittr** for pipe operator
 - Fit a SLR model where bill length is the predictor and flipper_length is the response using lm() function <br>
 :heavy_check_mark: See the results: <br>
 <img width="400" alt="Screen Shot 2022-08-16 at 11 23 13 AM" src="https://user-images.githubusercontent.com/64395120/184930042-202572bd-a01f-49b7-b33c-2e077584d94c.png">
