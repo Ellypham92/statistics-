@@ -10,7 +10,7 @@ The file* penguins.csv contains body measurements for over 100 Gentoo penguins o
 - Data dimension: 117 rows and   8 columns
 <img width="700" alt="Screen Shot 2022-08-16 at 11 18 01 AM" src="https://user-images.githubusercontent.com/64395120/184929152-cd6ae74c-ef25-472f-a061-015114bb9660.png">
 
-### :telescope: Modelling:
+### :telescope: Modelling and Evaluation:
 - R libraries: dplyr for data manipulation, magrittr for pipe operator
 - Fit a SLR model where bill length is the predictor and flipper_length is the response using lm() function <br>
 :heavy_check_mark: See the results: <br>
@@ -46,6 +46,11 @@ subset(cooks.distance(penguins.mod), cooks.distance(penguins.mod) > 4/(nrow(peng
 
 Observations numbered as 11, 17, 62, 98, 102, 103, 111 are considered as high leverage. No outlier is found. Based on Cook's distance, we indentified observations numbered as  11, 66, 103  are influential points <br>
 
+- Add curves for the fitted regression line, the boundaries of a 98% confidence interval for the regression line, and the boundaries of a 98% prediction interval for bill_length_mm <br>
+<img width="700" alt="Screen Shot 2022-08-16 at 11 55 05 AM" src="https://user-images.githubusercontent.com/64395120/184935769-6d1f129d-1ed6-4563-8a0d-054517988670.png">
+
+ As we can see in the plot, the blue lines color represents for the boundaries of a 98% confidence interval and the deeppink lines color represents for a 98% prediction interval; it is WIDER than the confidence interval boundaries. 
+ 
 - Split the penguin data into two subsets, one for female penguins and one for males <br>
 penguins.male <- penguins.exam %>% filter(sex == "male") ### males penguins  <br>
 penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins 
@@ -59,9 +64,6 @@ penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins
 
 <img width="600" alt="Screen Shot 2022-08-16 at 11 37 05 AM" src="https://user-images.githubusercontent.com/64395120/184932565-78494111-d639-4cab-b335-611d17aff5f6.png">
 
-We use summary() function to display the output, we learned tgar the models for both males and females can explain the 24.69 %. The estimate sigma is 4.912 <br>
+We use summary() function to display the output, we learned thar the models for both males and females can explain the 24.69 %. The estimate sigma is 4.912 <br>
 
-- Add curves for the fitted regression line, the boundaries of a 98% confidence interval for the regression line, and the boundaries of a 98% prediction interval for bill_length_mm
-<img width="700" alt="Screen Shot 2022-08-16 at 11 55 05 AM" src="https://user-images.githubusercontent.com/64395120/184935769-6d1f129d-1ed6-4563-8a0d-054517988670.png">
 
- As we can see in the plot, the blue lines color represents for the boundaries of a 98% confidence interval and the deeppink lines color represents for a 98% prediction interval; it is WIDER than the confidence interval boundaries. 
