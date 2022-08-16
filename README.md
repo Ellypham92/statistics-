@@ -41,12 +41,13 @@ Output: <br>
 
 subset(table, leverage > (4/nrow(penguins))) <br> 
 
-:heavy_check_mark: influential points using Cooks Distance <br>
+:heavy_check_mark: Influential points using Cooks Distance <br>
 subset(cooks.distance(penguins.mod), cooks.distance(penguins.mod) > 4/(nrow(penguins)- 2)) <br> 
 
+Observations numbered as 11, 17, 62, 98, 102, 103, 111 are considered as high leverage. No outlier is found. Based on Cook's distance, we indentified observations numbered as  11, 66, 103  are influential points
 
-- Split the penguin data into two subsets, one for female penguins and one for males
-penguins.male <- penguins.exam %>% filter(sex == "male") ### males penguins 
+- Split the penguin data into two subsets, one for female penguins and one for males <br>
+penguins.male <- penguins.exam %>% filter(sex == "male") ### males penguins  <br>
 penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins 
 
 - Make a plot with the data points and the fitted regression line for the two subsets <br>
