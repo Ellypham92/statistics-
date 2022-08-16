@@ -22,7 +22,15 @@ The file* penguins.csv contains body measurements for over 100 Gentoo penguins o
 
 As we can see from the display of regression output, the model can explain the 45.34% of fliiper length on bill length. The estimate sigma (standard deviation of the errors) is 4.75245
 
- As we can see from the display of regression output, the model can explain the 45.34% of fliiper length on bill length.
-- Compute 98\% confidence intervals for the intercept and slope coefficients
+- Split the penguin data into two subsets, one for female penguins and one for males
+penguins.male <- penguins.exam %>% filter(sex == "male") ### males penguins 
+penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins 
 
+- Make a plot with the data points and the fitted regression line for the two subsets
+:heavy_check_mark: Males penguins: <br>
+<img width="600" alt="Screen Shot 2022-08-16 at 11 35 58 AM" src="https://user-images.githubusercontent.com/64395120/184932370-51d7d767-ed9d-4f73-9a20-ac7ad5327c34.png">
+
+
+:heavy_check_mark: Females penguins:
+<img width="600" alt="Screen Shot 2022-08-16 at 11 37 05 AM" src="https://user-images.githubusercontent.com/64395120/184932565-78494111-d639-4cab-b335-611d17aff5f6.png">
 
