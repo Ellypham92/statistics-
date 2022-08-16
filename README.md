@@ -39,3 +39,5 @@ We use summary() function to display the output, we learned tgar the models for 
 
 - Add curves for the fitted regression line, the boundaries of a 98% confidence interval for the regression line, and the boundaries of a 98% prediction interval for bill_length_mm
 <img width="700" alt="Screen Shot 2022-08-16 at 11 55 05 AM" src="https://user-images.githubusercontent.com/64395120/184935769-6d1f129d-1ed6-4563-8a0d-054517988670.png">
+
+ As we can see in the plot, the blue lines color represents for the boundaries of a 98% confidence interval and the deeppink lines color represents for a 98% prediction interval; it is WIDER than the confidence interval boundaries. 
