@@ -7,5 +7,14 @@ A typical Starbucks location has 1 or 2 baristas making drinks.  The company is 
 
 ### :telescope: Modelling:
 - R libraries: dplyr for data manipulation, magrittr for pipe operator
-- Fit the linear regression model in R using lm()
+- Fit the linear regression model in R using lm() function
+coffee <- read.delim("coffee.txt")
+coffee.mod <- lm(Customers~Baristas, data=coffee)
+plot(Customers~Baristas, data=coffee, col = 'deeppink', pch = 19)
+abline(coffee.mod)
+
+
+
+predict.lm(coffee.mod, newdata = data.frame(Baristas = c(2)), interval = 'pred', level = 0.95)
+predict.lm(coffee.mod, newdata = data.frame(Baristas = c(8)), interval = 'pred', level = 0.95)
 - Compute 95% prediction intervals for $Y = Customers$ when $x=Baristas= 2$ and when $x=Baristas=8$
