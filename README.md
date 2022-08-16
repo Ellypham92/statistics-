@@ -22,6 +22,11 @@ The file* penguins.csv contains body measurements for over 100 Gentoo penguins o
 
 As we can see from the display of regression output, the model can explain the 45.34% of fliiper length on bill length. The estimate sigma (standard deviation of the errors) is 4.75245
 
+- Use the model to answer these questions:  Which points have high leverage?  Which points are outliers?  Which points are influential based on Cook's distance?  
+:heavy_check_mark: Diagnotic plots: <br>
+<img width="812" alt="Screen Shot 2022-08-16 at 12 05 13 PM" src="https://user-images.githubusercontent.com/64395120/184937561-2e53da67-9e8e-402d-8d4c-111186896042.png">
+
+
 - Split the penguin data into two subsets, one for female penguins and one for males
 penguins.male <- penguins.exam %>% filter(sex == "male") ### males penguins 
 penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins 
