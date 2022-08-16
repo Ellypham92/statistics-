@@ -3,7 +3,7 @@
 <img width="380" alt="Screen Shot 2022-08-16 at 11 11 44 AM" src="https://user-images.githubusercontent.com/64395120/184928087-200f4127-b6b5-40c4-a873-2c4c4a906854.png">
 
 ### :snowflake: Problem Statement:
-The file* penguins.csv contains body measurements for over 100 Gentoo penguins observed in the Palmer Archipelago of Antarctica from 2007-2009. The images show what the measurements mean. Here we will work with bill length and flipper length to create predictive model.
+The file* penguins.csv* contains body measurements for over 100 Gentoo penguins observed in the Palmer Archipelago of Antarctica from 2007-2009. The images show what the measurements mean. Here we will work with bill length and flipper length to create predictive model.
 
 ### :ocean: Data:
 - Using dim() to check the dimension and head() for a slice of the data
@@ -12,7 +12,7 @@ The file* penguins.csv contains body measurements for over 100 Gentoo penguins o
 
 ### :telescope: Modeling and Diagnotic:
 - R libraries: **dplyr** for data manipulation, **magrittr** for pipe operator
-- Fit a Simple Linear Rregresion model where bill length is the predictor and flipper_length is the response using lm() function <br>
+- Fit a **Simple Linear Rregresion** model where bill length is the predictor and flipper_length is the response using lm() function <br>
 :heavy_check_mark: See the results: <br>
 <img width="400" alt="Screen Shot 2022-08-16 at 11 23 13 AM" src="https://user-images.githubusercontent.com/64395120/184930042-202572bd-a01f-49b7-b33c-2e077584d94c.png">
 
