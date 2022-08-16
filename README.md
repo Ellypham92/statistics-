@@ -37,4 +37,5 @@ penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins
 
 We use summary() function to display the output, we learned tgar the models for both males and females can explain the 24.69 %. The estimate sigma is 4.912 <br>
 
-
+- Add curves for the fitted regression line, the boundaries of a 98% confidence interval for the regression line, and the boundaries of a 98% prediction interval for bill_length_mm
+<img width="700" alt="Screen Shot 2022-08-16 at 11 55 05 AM" src="https://user-images.githubusercontent.com/64395120/184935769-6d1f129d-1ed6-4563-8a0d-054517988670.png">
