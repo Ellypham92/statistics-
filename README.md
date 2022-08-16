@@ -31,7 +31,8 @@ penguins.female <- penguins.exam %>% filter(sex == "female") ### female penguins
 :heavy_check_mark: Males penguins: <br>
 <img width="600" alt="Screen Shot 2022-08-16 at 11 35 58 AM" src="https://user-images.githubusercontent.com/64395120/184932370-51d7d767-ed9d-4f73-9a20-ac7ad5327c34.png">
 
-:heavy_check_mark: Females penguins:
+:heavy_check_mark: Females penguins: <br>
+
 <img width="600" alt="Screen Shot 2022-08-16 at 11 37 05 AM" src="https://user-images.githubusercontent.com/64395120/184932565-78494111-d639-4cab-b335-611d17aff5f6.png">
 
 We use summary() function to display the output, we learned tgar the models for both males and females can explain the 24.69 %. The estimate sigma is 4.912 <br>
